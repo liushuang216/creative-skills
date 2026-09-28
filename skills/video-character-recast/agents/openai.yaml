@@ -1,0 +1,5 @@
+interface:
+  display_name: "视频角色替换"
+  short_description: "逐镜头映射角色，保留参考视频表演与剪辑，支持独立提示词、结果检查和局部修复"
+  default_prompt: "使用 $video-character-recast，根据参考视频和角色图编写独立的角色替换提示词，逐镜头明确角色归属，保留动作、表情与剪辑节奏。"
+
