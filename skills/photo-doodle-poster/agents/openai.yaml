@@ -1,0 +1,5 @@
+interface:
+  display_name: "独立照片手绘海报"
+  short_description: "一图一报，上半保留照片，下半少色极简手绘，兼顾完整主体与大量留白"
+  default_prompt: "使用 $photo-doodle-poster，将我上传的每张照片分别制作成上下等分的独立海报，并完整保留主要主体。"
+
