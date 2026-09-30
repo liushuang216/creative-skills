@@ -1,0 +1,4 @@
+interface:
+  display_name: "韩式平面照片海报"
+  short_description: "一图一报，上半真实摄影，下半鲜亮纯色韩式插图，配合俏皮英文编辑排版"
+  default_prompt: "使用 $photo-korean-editorial-poster，将我上传的照片分别制作成上下等分、主体完整的韩式平面编辑海报。"
