@@ -1,0 +1,4 @@
+interface:
+  display_name: "实景延伸线稿旅行海报"
+  short_description: "将照片中的自然元素延伸为纸面线稿，配上有互动的小人物与克制手写旁白"
+  default_prompt: "使用 $photo-line-extension-poster，把这张照片做成 3:4 实景延伸线稿旅行海报。"

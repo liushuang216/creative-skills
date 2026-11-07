@@ -2,24 +2,31 @@
 
 可复用的创意类 Agent Skills，面向支持 `SKILL.md` 的助手。
 
+## 来源与权益说明
+
+本仓库中不少提示词与创意玩法收集自网络推荐，经个人整理、改写和实践后转换为可复用的 Skills，并非全部原创。已知来源会尽量注明；如有遗漏，欢迎补充。
+
+相关原始内容的权利归原作者或权利人所有。如涉及侵权，或希望补充署名、调整引用、删除相关内容，请通过 [GitHub Issues](https://github.com/liushuang216/creative-skills/issues) 联系，我们会及时核实处理。
+
 ## 当前技能
 
 | Skill | 用途 |
 | --- | --- |
 | [photo-doodle-poster](skills/photo-doodle-poster/SKILL.md) | 每张照片生成一张 3:4 海报：上半照片，下半少色极简手绘；上下等分，主体完整，大量留白。 |
 | [photo-korean-editorial-poster](skills/photo-korean-editorial-poster/SKILL.md) | 上半真实摄影，下半韩式平面编辑插图；鲜亮纯色、粗黑手绘轮廓、俏皮英文排版。 |
+| [photo-line-extension-poster](skills/photo-line-extension-poster/SKILL.md) | 上方约 60%–70% 保留摄影，将场景元素延伸为暖白纸面上的细线，与小比例钢笔人物互动。 |
 | [video-character-recast](skills/video-character-recast/SKILL.md) | 按参考视频逐镜头替换角色，保留表演与剪辑；支持分段提示词、结果核对和局部修复。 |
 
-## 同一张照片，两种海报
+## 同一张照片，三种海报
 
-用同一张“马头遮住人脸、双手点赞”的照片运行全部照片转换技能。两个技能均使用内置图像生成工具实际出图；视频角色替换不属于照片转换，不在本组演示范围。
+用同一张“马头遮住人脸、双手点赞”的照片展示三种照片转换玩法。三张均使用内置图像生成工具实际出图；视频角色替换不在本组演示范围。
 
 <img src="examples/horse-field/source.jpg" alt="原始示例：花田里，马头挡住身后人物的脸，人物双手点赞" width="300">
 
-| 少色极简手绘 | 韩式平面编辑插图 |
-| --- | --- |
-| ![极简手绘结果](examples/horse-field/photo-doodle-poster.png) | ![韩式平面结果](examples/horse-field/photo-korean-editorial-poster.png) |
-| 暖白留白、细小完整主体、松弛线条 | 蓝黄鲜色、明确视觉中心、粗黑轮廓与英文标题 |
+| 少色极简手绘 | 韩式平面编辑插图 | 实景延伸线稿 |
+| --- | --- | --- |
+| ![极简手绘结果](examples/horse-field/photo-doodle-poster.png) | ![韩式平面结果](examples/horse-field/photo-korean-editorial-poster.png) | ![实景延伸线稿结果](examples/horse-field/photo-line-extension-poster.png) |
+| 暖白留白、细小完整主体、松弛线条 | 蓝黄鲜色、明确视觉中心、粗黑轮廓与英文标题 | 缰绳延伸为细线，小人牵住它，配上 “A little help” |
 
 [查看示例提示词、生成过程与检查记录](examples/horse-field/README.md)。图片是实际生成结果，不代表每次都能像素级保留原照片；扩展环境和精确分区仍需检查。
 
@@ -32,6 +39,7 @@ git clone https://github.com/liushuang216/creative-skills.git
 mkdir -p ~/.codex/skills
 cp -R creative-skills/skills/photo-doodle-poster ~/.codex/skills/
 cp -R creative-skills/skills/photo-korean-editorial-poster ~/.codex/skills/
+cp -R creative-skills/skills/photo-line-extension-poster ~/.codex/skills/
 cp -R creative-skills/skills/video-character-recast ~/.codex/skills/
 ```
 
@@ -42,6 +50,13 @@ cp -R creative-skills/skills/video-character-recast ~/.codex/skills/
 ```
 
 鲜亮平面版本可调用：使用 $photo-korean-editorial-poster，把这张照片做成上半摄影、下半韩式平面插图的海报。
+
+实景延伸版本可调用：
+
+```text
+使用 $photo-line-extension-poster，把这张照片做成 3:4 实景延伸线稿旅行海报。
+从照片中选一个自然元素延伸到下方纸面，让小人与它互动。
+```
 
 也可仅生成 prompt：
 
@@ -62,7 +77,7 @@ cp -R creative-skills/skills/video-character-recast ~/.codex/skills/
 
 ## 设计原则
 
-保留原始审美 prompt，并纳入实际迭代中的主体完整性修正。删减背景和细节，不误删主要主体的腿脚；靠缩小主体与扩展环境适配画幅。尺寸和分区仍需检查生成结果，文字约束不保证每次生成都精确满足。
+保留各自的审美 prompt，并纳入实际迭代中的修正。上下等分的两种海报通过缩小主体与扩展环境保护完整轮廓；实景延伸线稿海报默认只做必要的等比例裁切，重点是摄影到纸面的连续衔接与合理互动。尺寸和分区仍需检查生成结果，文字约束不保证每次生成都精确满足。
 
 技能目录包含通用说明与文本模板。examples/horse-field 另附用户明确授权用于公开演示的原图与生成结果；其他私人照片、会话文件和本地路径不纳入仓库。使用技能不代表授权公开新的输入照片。
 
@@ -70,4 +85,4 @@ cp -R creative-skills/skills/video-character-recast ~/.codex/skills/
 
 ## License
 
-技能代码与文档采用 MIT。示例原照片的权利归原权利人；公开展示授权不等于向第三方授予照片的 MIT 许可。
+本仓库自行编写的技能代码与整理文档采用 MIT。第三方原始提示词、引用内容和示例原照片的权利归原权利人，不因收录而自动改为 MIT 许可；示例照片的公开展示授权也不等于向第三方授予照片的 MIT 许可。
